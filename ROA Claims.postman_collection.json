@@ -1,0 +1,288 @@
+{
+  "info": {
+    "_postman_id": "1ee5ae27-4d12-4e57-8312-e72e3fd7a0e7",
+    "name": "ROA Claims",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "3291841"
+  },
+  "item": [
+    {
+      "name": "Getting JWT Token for Admin",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"username\": \"admin\",\r\n  \"password\": \"password\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5158/api/Auth",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5158",
+          "path": [
+            "api",
+            "Auth"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Claim field Errors",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJhZG1pbiIsInVuaXF1ZV9uYW1lIjoiYWRtaW4iLCJyb2xlIjoiVXNlciIsImp0aSI6ImViYzg0NmJiLWMzNDAtNDJlMy04NjZjLTAzOWVlMzQ5YTFhNCIsIm5iZiI6MTc2OTY5MzM1MywiZXhwIjoxNzY5Njk2OTUzLCJpYXQiOjE3Njk2OTMzNTMsImlzcyI6IlJPQUNsYWltc0FQSSIsImF1ZCI6IlJPQUNsYWltc0FQSUNsaWVudCJ9.vQ0AjgcWmoqiOU1mKeg7dJw7bure0i3qu0hbq2sqObw",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"policyNumber\": \"TKK-123\",\r\n  \"claimantName\": \"Anil Pillai\",\r\n  \"claimantEmail\": \"anil.pillai@solera.com\",\r\n  \"incidentDate\": \"2026-01-25T00:04:05.112Z\",\r\n  \"description\": \"test\",\r\n  \"claimedAmount\": 999999999.99,\r\n  \"tags\": [\r\n    \"Q1\"\r\n  ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5158/api/Claims",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5158",
+          "path": [
+            "api",
+            "Claims"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Claims Collection",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJhZG1pbiIsInVuaXF1ZV9uYW1lIjoiYWRtaW4iLCJyb2xlIjoiVXNlciIsImp0aSI6ImViYzg0NmJiLWMzNDAtNDJlMy04NjZjLTAzOWVlMzQ5YTFhNCIsIm5iZiI6MTc2OTY5MzM1MywiZXhwIjoxNzY5Njk2OTUzLCJpYXQiOjE3Njk2OTMzNTMsImlzcyI6IlJPQUNsYWltc0FQSSIsImF1ZCI6IlJPQUNsYWltc0FQSUNsaWVudCJ9.vQ0AjgcWmoqiOU1mKeg7dJw7bure0i3qu0hbq2sqObw",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5158/api/Claims?Status=0&DateFrom=2026-01-24T00%3A04%3A05.112Z&Page=1&PageSize=2&SortDescending=false",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5158",
+          "path": [
+            "api",
+            "Claims"
+          ],
+          "query": [
+            {
+              "key": "Status",
+              "value": "0"
+            },
+            {
+              "key": "DateFrom",
+              "value": "2026-01-24T00%3A04%3A05.112Z"
+            },
+            {
+              "key": "Page",
+              "value": "1"
+            },
+            {
+              "key": "PageSize",
+              "value": "2"
+            },
+            {
+              "key": "SortDescending",
+              "value": "false"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Claims Summary",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJhZG1pbiIsInVuaXF1ZV9uYW1lIjoiYWRtaW4iLCJyb2xlIjoiVXNlciIsImp0aSI6ImViYzg0NmJiLWMzNDAtNDJlMy04NjZjLTAzOWVlMzQ5YTFhNCIsIm5iZiI6MTc2OTY5MzM1MywiZXhwIjoxNzY5Njk2OTUzLCJpYXQiOjE3Njk2OTMzNTMsImlzcyI6IlJPQUNsYWltc0FQSSIsImF1ZCI6IlJPQUNsYWltc0FQSUNsaWVudCJ9.vQ0AjgcWmoqiOU1mKeg7dJw7bure0i3qu0hbq2sqObw",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5158/api/Claims/summary",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5158",
+          "path": [
+            "api",
+            "Claims",
+            "summary"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get A Claim",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJhZG1pbiIsInVuaXF1ZV9uYW1lIjoiYWRtaW4iLCJyb2xlIjoiVXNlciIsImp0aSI6ImViYzg0NmJiLWMzNDAtNDJlMy04NjZjLTAzOWVlMzQ5YTFhNCIsIm5iZiI6MTc2OTY5MzM1MywiZXhwIjoxNzY5Njk2OTUzLCJpYXQiOjE3Njk2OTMzNTMsImlzcyI6IlJPQUNsYWltc0FQSSIsImF1ZCI6IlJPQUNsYWltc0FQSUNsaWVudCJ9.vQ0AjgcWmoqiOU1mKeg7dJw7bure0i3qu0hbq2sqObw",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5158/api/Claims/claims?id=16e24b96-a10c-49c0-9247-bef129dfc964",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5158",
+          "path": [
+            "api",
+            "Claims",
+            "claims"
+          ],
+          "query": [
+            {
+              "key": "id",
+              "value": "16e24b96-a10c-49c0-9247-bef129dfc964"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "UpdateClaimStatus",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJhZG1pbiIsInVuaXF1ZV9uYW1lIjoiYWRtaW4iLCJyb2xlIjoiVXNlciIsImp0aSI6ImViYzg0NmJiLWMzNDAtNDJlMy04NjZjLTAzOWVlMzQ5YTFhNCIsIm5iZiI6MTc2OTY5MzM1MywiZXhwIjoxNzY5Njk2OTUzLCJpYXQiOjE3Njk2OTMzNTMsImlzcyI6IlJPQUNsYWltc0FQSSIsImF1ZCI6IlJPQUNsYWltc0FQSUNsaWVudCJ9.vQ0AjgcWmoqiOU1mKeg7dJw7bure0i3qu0hbq2sqObw",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"status\": 3,\r\n  \"notes\": \"Denied after review\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5158/api/Claims/16e24b96-a10c-49c0-9247-bef129dfc964",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5158",
+          "path": [
+            "api",
+            "Claims",
+            "16e24b96-a10c-49c0-9247-bef129dfc964"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Claim field Errors",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJ1c2VyIiwidW5pcXVlX25hbWUiOiJ1c2VyIiwicm9sZSI6IlVzZXIiLCJqdGkiOiJkMzI3YzM2Zi02OWFiLTQ2NDktYWM3Ni1lZjhjYjFjNzcyZjkiLCJuYmYiOjE3Njk2OTgzMDEsImV4cCI6MTc2OTcwMTkwMSwiaWF0IjoxNzY5Njk4MzAxLCJpc3MiOiJST0FDbGFpbXNBUEkiLCJhdWQiOiJST0FDbGFpbXNBUElDbGllbnQifQ.mZQwM57yppz0v1tSqOJnf6jGUIXcv951sbgjPdyNa1Y",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"policyNumber\": \"3\",\r\n  \"claimantName\": \"Anil Pillai\",\r\n  \"claimantEmail\": \"anil.pillai@solera.com\",\r\n  \"incidentDate\": \"2026-01-25T00:04:05.112Z\",\r\n  \"description\": \"test\",\r\n  \"claimedAmount\": 999999999.99,\r\n  \"tags\": [\r\n    \"Q1\"\r\n  ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5158/api/Claims",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5158",
+          "path": [
+            "api",
+            "Claims"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Claim User",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJ1c2VyIiwidW5pcXVlX25hbWUiOiJ1c2VyIiwicm9sZSI6IlVzZXIiLCJqdGkiOiJkMzI3YzM2Zi02OWFiLTQ2NDktYWM3Ni1lZjhjYjFjNzcyZjkiLCJuYmYiOjE3Njk2OTgzMDEsImV4cCI6MTc2OTcwMTkwMSwiaWF0IjoxNzY5Njk4MzAxLCJpc3MiOiJST0FDbGFpbXNBUEkiLCJhdWQiOiJST0FDbGFpbXNBUElDbGllbnQifQ.mZQwM57yppz0v1tSqOJnf6jGUIXcv951sbgjPdyNa1Y",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"policyNumber\": \"TKK-1245\",\r\n  \"claimantName\": \"Anil Pillai\",\r\n  \"claimantEmail\": \"anil.pillai@solera.com\",\r\n  \"incidentDate\": \"2026-01-25T00:00:05.112Z\",\r\n  \"description\": \"test desc\",\r\n  \"claimedAmount\": 999999999.99,\r\n  \"tags\": [\r\n    \"Q1\"\r\n  ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5158/api/Claims",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5158",
+          "path": [
+            "api",
+            "Claims"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
